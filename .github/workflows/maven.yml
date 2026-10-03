@@ -26,7 +26,7 @@ jobs:
       - name: Build, Test & SonarQube Scan
         run: mvn clean verify sonar:sonar \
           -Dsonar.projectKey=devops-shack-projectops \
-          -Dsonar.organization=malaxy \
+          -Dsonar.organization=DevSecOps-Projectss \
           -Dsonar.host.url=https://sonarcloud.io \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
