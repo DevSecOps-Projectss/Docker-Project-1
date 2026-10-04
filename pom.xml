@@ -25,6 +25,14 @@
         </sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
+    <pluginRepositories>
+        <pluginRepository>
+            <id>sonarsource</id>
+            <name>SonarSource Repository</name>
+            <url>https://repository.sonarsource.com/content/repositories/releases</url>
+        </pluginRepository>
+    </pluginRepositories>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -78,7 +86,6 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.version}</version>
                 <executions>
-                    <!-- Attach the JaCoCo agent before the unit tests run. -->
                     <execution>
                         <id>prepare-agent</id>
                         <goals>
@@ -86,7 +93,6 @@
                         </goals>
                     </execution>
 
-                    <!-- Generate jacoco.xml during the Maven test phase. -->
                     <execution>
                         <id>jacoco-report</id>
                         <phase>test</phase>
@@ -95,6 +101,12 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
             </plugin>
         </plugins>
     </build>
