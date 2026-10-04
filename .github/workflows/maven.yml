@@ -108,7 +108,7 @@ jobs:
       - name: GitLeaks Directory Scan
         run: |
           gitleaks dir . \
-            --redact \
+            --verbose \
             --exit-code 0
 
   # =========================================================
